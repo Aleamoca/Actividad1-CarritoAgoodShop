@@ -1,0 +1,95 @@
+body {
+    display: block;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin-left:50px;
+    margin-right: 50px;
+    padding: 20px
+}
+
+h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid gainsboro;
+    color: #333;
+}
+
+#contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#contenedorTabla {
+    margin-top: 50px;
+    width: 70%;
+}
+
+#contenedorTotal{
+width: 30%;
+background-color: aliceblue;
+margin-top: 50px;
+margin-left: 30px;
+padding: 20px;
+border-radius: 5px;
+box-shadow:0 2px 10px rgba(0, 0, 0, 0.2);
+align-self: flex-start;
+
+}
+
+#contenedorCarrito {
+    position: fixed;
+    right: 80px; 
+    top: 200px; 
+    width: 300px;
+    background-color: rgb(226, 223, 223);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+#contenedorTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 80%;
+}
+
+
+#tituloTotal {
+    text-align: center;
+}
+
+button {
+    background-color: #9e9d99;
+    color: white;
+    border: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e4e2db;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border-bottom: 2px solid gainsboro;
+    padding: 20px;
+}
