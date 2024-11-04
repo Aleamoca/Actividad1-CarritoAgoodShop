@@ -7,36 +7,32 @@
     <title>AgoodShop</title>
 </head>
 <body>
-    <h1> AgoodShop</h1>
-    <div id="contenedor"></div>
+    <h1>AgoodShop</h1>
+    <div id="contenedor">
         <div id="contenedorTabla">
-            <table class="table" id="tablaProductos"aria-label="Tabla de productos">
+            <table class="table" id="tablaProductos" aria-label="Tabla de productos">
                 <thead>
                     <tr>
-                        <th scope="col"> Producto</th>
-                        <th scope="col"> Cantidad</th>
-                        <th scope="col"> Pr.Unidad</th>
-                        <th scope="col"> Total</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Pr. Unidad</th>
+                        <th scope="col">Total</th>
                     </tr>
                 </thead>
-                <tbody id= "cuerpoTabla">
-                    <!--
-                    <tr>
-                        <td colspan="4" class="text-center">No hay productos en el carrito.</td>
-                    </tr>
-                    -->
+                <tbody id="cuerpoTabla">
+                <!-- Filas de productos se agregarán aquí -->
                 </tbody>
             </table>
         </div>
-        <aside id= "contenedorCarrito">
-            <div id= "tituloTotal">
+        <aside id="contenedorCarrito">
+            <div id="tituloTotal">
                 <h2>Total</h2>
             </div>
-
             <div id="contenedorTotal">
-                <span>TOTAL</span>
-                <span id="totalFinal">0€</span>
+               
+                <span id="total"></span>   
             </div>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
         </aside>
     </div>   
     <script type="module" src="script.js"></script>

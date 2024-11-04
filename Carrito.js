@@ -1,16 +1,17 @@
 export default class Carrito {
     constructor() {
-        this.productos = []; // Inicializa un array vacío para almacenar productos
-        //console.log("Carrito inicializado");
+        this.productos = [];
     }
 
-    // Actualiza el número de unidades que se quieren comprar de un producto
-    actualizarUnidades(sku, unidades) {
-        const producto = this.productos.find(item => item.sku === sku);
+    //Busca un producto en el carrito por su sku. 
+    //Si el producto existe, actualiza su cantidad si no agrega un nuevo objeto de producto 
+    //al carrito con el sku y la cantidad especificada.
+    actualizarUnidades(sku, cantidad) {
+        const producto = this.productos.find(p => p.sku === sku);
         if (producto) {
-            producto.quantity = unidades; // Actualiza la cantidad
+            producto.quantity = cantidad; // Solo actualiza la cantidad si el producto ya existe
         } else {
-            console.error("Producto no encontrado en el carrito");
+            this.productos.push({ sku, quantity: cantidad }); // Agrega un nuevo producto
         }
     }
 
@@ -28,27 +29,20 @@ export default class Carrito {
         return null; // Devuelve null si no se encuentra el producto
     }
 
-    // Devuelve información de los productos añadidos al carrito
-    obtenerCarrito() {
-        const total = this.productos.reduce((sum, item) => {
-            return sum + (item.price * item.quantity);
-        }, 0);
-        
-        return {
-            total: total.toFixed(2),
-            currency: "€", // Ajusta según la moneda que necesites
-            products: this.productos
-        };
+    eliminarProducto(sku) {
+        this.productos = this.productos.filter(p => p.sku !== sku);
     }
-
-    // Método para agregar productos al carrito
-    agregarProducto(producto, cantidad) {
-        const existingProduct = this.productos.find(item => item.sku === producto.sku);
-        if (existingProduct) {
-            existingProduct.quantity += cantidad; // Incrementa la cantidad
-        } else {
-            // Agrega el nuevo producto con la cantidad
-            this.productos.push({ ...producto, quantity: cantidad });
+    //Devuelve un objeto que contiene el total de unidades en el carrito y el array de productos. 
+    //Utiliza reduce para calcular la suma total de cantidades de los productos
+    obtenerCarrito() {
+        return {
+            total: this.productos.reduce((sum, producto) => sum + producto.quantity, 0),
+            productos: this.productos
         }
     }
-}
+    //Establece la cantidad de cada producto en el carrito a cero, vaciando el carrito, 
+    //Los productos permanecen en el array
+    vaciarCarrito() {
+        this.productos.forEach(producto => producto.quantity = 0);
+    }
+};
